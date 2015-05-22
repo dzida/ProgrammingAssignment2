@@ -15,18 +15,22 @@ makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL  # inverse cache
     set <- function(y) {
       x <<- y
-      inv <<- NULL  # reset cached inverse
+      # reset cached inverse
+      inv <<- NULL  
     }
     get <- function() x
     set_inverse <- function(inverse) inv <<- inverse
     get_inverse <- function() inv
     
     # return list of operations
-    list(get=get, set=set, get_inverse=get_inverse, set_inverse=set_inverse)
+    list(get=get, 
+         set=set, 
+         get_inverse=get_inverse, 
+         set_inverse=set_inverse)
 }
 
 
-# Returns inverse for a matrix.
+# Returns an inverse of a matrix.
 # Gets an inverse from cache if exists,
 # otherwise populates cache with computed matrix inverse before returning this value.
 # Works only with objects returned from makeCacheMatrix.
