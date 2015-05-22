@@ -39,7 +39,8 @@ cacheSolve <- function(x, ...) {
     }
     
     # if inverse is not yet cached, compute
-    inv <- solve(x$get())
+    matrix_data <- x$get()
+    inv <- solve(matrix_data, ...)
     
     # populate cache
     x$set_inverse(inv)
